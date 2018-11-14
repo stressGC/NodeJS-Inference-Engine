@@ -2,11 +2,11 @@ const logic  = require('./logic');
 
 class Bot {
 
-  constructor(){
+  constructor(board){
+    this._board = board;
     this.initialiseKnowledge();
-    this._x = 1;
-    this._y = 1;
-    console.log(this._knowledge);
+    this._x = 0;
+    this._y = 0;
 
     this._logic = logic;
   }
@@ -22,22 +22,25 @@ class Bot {
     /* compute rules */
     await this.updateState();
 
-    /*this.chooseAction();
+    const action = this.chooseAction();
 
-    this.doAction();*/
+    this.doAction(action);
   }
 
   observeEnv() {
     /* get the informations based on our sensors */
-    const value = 'm';
+    const value = this._board[this._y][this._x];
+    console.log(`(${this._x},${this._y}) = {${value}}`);
     this._knowledge[this._y][this._x] = value;
   }
 
   async updateState() { 
     console.log("launching inference based on : ")
     console.log(this._knowledge);
+
     /* reset our fact variable*/
     this.resetFacts();
+    delete this._result;
 
     const fact = {
       matrix : this._knowledge,
@@ -48,25 +51,36 @@ class Bot {
     });
 
     const result = await executeRules;
-    console.log(result)
-    process.exit(0);
+    this._result = {
+      ...result.result,
+      type: "GOTO",
+    };
   }
 
   chooseAction() {
+    switch(this._result.type) {
+      case 'GOTO':
+        return this._result;
+      case 'SHOOT':
+        return this._result;
+      default:
+        return null;
+    }
   }
 
-  doAction() {
+  doAction(action) {
+    console.log("doing action : ", action);
+    if(action.type === 'GOTO') {
+      this._x = action.x;
+      this._y = action.y;
+    }
   }
 
   initialiseKnowledge() {
-    //const length = this._board.length;
-    const a = [[' ','?', '?', '?'],
-              [' ','?', '?', '?'],
-              [' ','?', '?', '?'],
-              ['?','?', '?', '?']];
+    const length = this._board.length;
 
-    this._knowledge = a;//new Array(length).fill(VALUES.UNKNOWN).map(() => new Array(length).fill(VALUES.UNKNOWN));
-    //this._knowledge[0][0] = VALUES.DEFAULT;
+    this._knowledge = new Array(length).fill('?').map(() => new Array(length).fill('?'));
+    this._knowledge[0][0] = ' ';
   }
 
   resetFacts() {
