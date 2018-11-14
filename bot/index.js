@@ -1,4 +1,4 @@
-const RuleEngine = require("node-rules");
+const logic  = require('./logic');
 
 class Bot {
 
@@ -7,6 +7,8 @@ class Bot {
     this._x = 1;
     this._y = 1;
     console.log(this._knowledge);
+
+    this._logic = logic;
   }
 
   async think() {
@@ -37,8 +39,12 @@ class Bot {
     /* reset our fact variable*/
     this.resetFacts();
 
+    const fact = {
+      matrix : this._knowledge,
+    }
+
     const executeRules = new Promise(resolve => {
-      this._R.execute(fact, ((data) => resolve(data)));
+      this._logic.execute(fact, ((data) => resolve(data)));
     });
 
     const result = await executeRules;
