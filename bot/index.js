@@ -48,7 +48,7 @@ class Bot {
     });
 
     const result = await executeRules;
-    console.log(result); process.exit(0);
+    process.exit(0);
   }
 
   chooseAction() {
