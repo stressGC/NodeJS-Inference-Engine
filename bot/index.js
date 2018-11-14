@@ -29,7 +29,7 @@ class Bot {
 
   observeEnv() {
     /* get the informations based on our sensors */
-    const value = ' ';
+    const value = 'm';
     this._knowledge[this._y][this._x] = value;
   }
 
@@ -48,6 +48,7 @@ class Bot {
     });
 
     const result = await executeRules;
+    console.log(result)
     process.exit(0);
   }
 
