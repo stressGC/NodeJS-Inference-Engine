@@ -31,9 +31,9 @@ const identifyObviousDanger = (matrix, x, y) => {
   /* if we discovered a danger around this hint, then its not relevant */
   const hintRelevant = countForValueAround(matrix, x, y, value.toUpperCase()) === 0;
   const coords = getCoordsIfOnlyOneUnknownAround(matrix, x, y);
-  // console.log("coords ? ", coords)
+
   if(coords.hasOwnProperty('x') && hintRelevant) {
-    // console.log(coords.x, coords.y, " is a : ", value.toUpperCase());
+
     return {
       type : 'UPDATE_KNOWLEDGE',
       x: coords.x,
@@ -55,7 +55,6 @@ module.exports = {
     const action = identifyObviousDanger(this.matrix, x, y);
     if (action.hasOwnProperty('type')) {
       this.result = action;
-      // console.log(action, x, y);
       R.stop();
     }
     R.next();

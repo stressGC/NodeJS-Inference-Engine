@@ -4,7 +4,7 @@ class Bot {
   
   constructor(board){
     this._board = board;
-    this.initialiseKnowledge();
+    this.initialise();
     this._x = 0;
     this._y = 0;
     
@@ -51,6 +51,7 @@ class Bot {
     
     const fact = {
       matrix : this._knowledge,
+      deducted : this._deducted,
     }
     
     const executeRules = new Promise(resolve => {
@@ -75,6 +76,7 @@ class Bot {
         this._dead = true;
       case 'UPDATE_KNOWLEDGE':
         this._knowledge[action.y][action.x] = action.value;
+        this._deducted[action.y][action.x] = true;
         break;
       break;
         default:
@@ -84,11 +86,14 @@ class Bot {
     }
   }
   
-  initialiseKnowledge() {
+  initialise() {
     const length = this._board.length;
     
     this._knowledge = new Array(length).fill('?').map(() => new Array(length).fill('?'));
     this._knowledge[0][0] = ' ';
+    
+    this._deducted = new Array(length).fill(false).map(() => new Array(length).fill(false));
+    console.log(this._deducted);
   }
   
   resetFacts() {
