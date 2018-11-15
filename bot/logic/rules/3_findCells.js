@@ -51,7 +51,7 @@ module.exports = {
   "consequence": function(R) {
     const possibleMoves = checkMoves(this);
     if (!this.cells) this.cells = Array();
-    console.log("COMPUTING BORDER CELLS", possibleMoves);
+    // console.log("COMPUTING BORDER CELLS", possibleMoves);
     this.cells = possibleMoves;
     this.possibleCellsComputed = true;
     R.next();

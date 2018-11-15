@@ -17,24 +17,23 @@ const isSafe = (matrix, x, y) => {
   // return false;
   let safeBorders = 0;
   const safeBordersToBeSafe = 4;
-  console.log("testing ("+ x + "," + y + ")")
+  // console.log("testing ("+ x + "," + y + ")")
   if (northExists(matrix.length, x, y) && getNorthValue(matrix, x, y) === ' ') {
-    console.log("north proves safe");
+    // console.log("north proves safe");
     return true;
   } 
   if (southExists(matrix.length, x, y) && getSouthValue(matrix, x, y) === ' ') {
-    console.log("south proves safe");
+    // console.log("south proves safe");
     return true;
   } 
   if (eastExists(matrix.length, x, y) && getEastValue(matrix, x, y) === ' ') {
-    console.log("east proves safe");
+    // console.log("east proves safe");
     return true;
   } 
   if (westExists(matrix.length, x, y) && getWestValue(matrix, x, y) === ' ') {
-    console.log("west proves safe");
+    // console.log("west proves safe");
     return true;
   } 
- 
 
   return safeBorders === safeBordersToBeSafe;
 }
@@ -50,15 +49,18 @@ module.exports = {
     switch(safeFiltered.length) {
       case 0:
         // none is safe, need another filter
-        console.log("no cell is safe, next filter");
+        // console.log("no cell is safe, next filter");
         R.next();
         break;
       default:
         // return a random cell which is safe
-        console.log("returning random safe cell in ", safeFiltered);
+        // console.log("returning random safe cell in ", safeFiltered);
         this.cells = safeFiltered;
         const index = getRandom(0, safeFiltered.length -1)
-        this.result = safeFiltered[index];
+        this.result = {
+          ...safeFiltered[index],
+          type: 'GOTO',
+        };
         R.stop();
     }
   }

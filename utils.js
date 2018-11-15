@@ -11,7 +11,10 @@ const getNorthValue = (matrix, x, y) => matrix[y - 1][x];
 const getSouthValue = (matrix, x, y) => matrix[y + 1][x];
 
 /* random generator */
-module.exports.getRandom = (min, max) =>  Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandom = (min, max) =>  Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+module.exports.getRandom = getRandom;
 module.exports.eastExists = eastExists;
 module.exports.westExists = westExists;
 module.exports.southExists = southExists;

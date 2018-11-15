@@ -1,26 +1,39 @@
+const config = require('./config');
 const Bot = require('./bot');
+const { generate } = require('./env/generation');
+
+let currentSize = config.STARTING_SIZE;
+let level = 1;
+console.log("starting size :", currentSize)
 
 const main = async () => {
-  const a = [[' ',' ', 'm', ' '],
-            [' ','m', 'M', 'm'],
-            [' ',' ', 'm', ' '],
-            [' ','P', ' ', ' ']];
-  const bot = new Bot(a);
-  
-  await think(bot);
-};
+  const forest = generate(currentSize);
 
-const think = async (bot) => {
-  await bot.think();
-  await sleep(1500);
-  if(!bot._dead) {
-    await think(bot);
+  const bot = new Bot(forest);
+  
+  const res = await think(bot);
+  console.log("END : ", res)
+
+  if (res) {
+    level++;
+    console.log(level);
+    currentSize++;
+    await(main());
+  } else {
+    console.log("died at level " + level);
   }
 };
 
-const sleep = async (ms) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const think = async (bot) => {
+  let res = null;
+  while(res === null || typeof res === "undefined") {
+    await sleep(500);
+    res = await bot.think();
+  }
+  return res;
+};
+
+const sleep = async (ms) =>  new Promise(resolve => setTimeout(resolve, ms));
 
 main();
 
