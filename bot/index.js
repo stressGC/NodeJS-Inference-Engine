@@ -62,7 +62,7 @@ class Bot {
   }
   
   doAction(action) {
-    // console.log("doing action : ", action);
+    console.log("doing action : ", action);
     switch(action.type) {
       case 'GOTO':
         this._x = action.x;
@@ -74,12 +74,12 @@ class Bot {
       case 'DEATH':
         this._dead = true;
       case 'UPDATE_KNOWLEDGE':
-        console.log("UPDATING KNOWLEDGE TO :", action.matrix)
-        this._knowledge = action.matrix;
+        this._knowledge[action.y][action.x] = action.value;
         break;
       break;
         default:
         this._dead = true;
+        console.log("end of known rules")
         break;
     }
   }
