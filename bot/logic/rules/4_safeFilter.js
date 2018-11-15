@@ -45,16 +45,13 @@ module.exports = {
   },
   "consequence": function(R) {
     const safeFiltered = this.cells.filter((cell) => isSafe(this.matrix, cell.x, cell.y));
-
     switch(safeFiltered.length) {
       case 0:
         // none is safe, need another filter
-        // console.log("no cell is safe, next filter");
         R.next();
         break;
       default:
         // return a random cell which is safe
-        // console.log("returning random safe cell in ", safeFiltered);
         this.cells = safeFiltered;
         const index = getRandom(0, safeFiltered.length -1)
         this.result = {

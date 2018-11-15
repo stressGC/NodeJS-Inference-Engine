@@ -24,7 +24,7 @@ class Bot {
     this.updateState(newValue);
     
     const action = await this.chooseAction();
-    
+    console.log("doing action : " + action.type)
     this.doAction(action);
   }
   
@@ -65,15 +65,22 @@ class Bot {
     // console.log("doing action : ", action);
     switch(action.type) {
       case 'GOTO':
-      this._x = action.x;
-      this._y = action.y;
-      break;
+        this._x = action.x;
+        this._y = action.y;
+        break;
       case 'WIN':
-      this._win = true;
-      break;
+        this._win = true;
+        break;
       case 'DEATH':
-      this._dead = true;
+        this._dead = true;
+      case 'UPDATE_KNOWLEDGE':
+        console.log("UPDATING KNOWLEDGE TO :", action.matrix)
+        this._knowledge = action.matrix;
+        break;
       break;
+        default:
+        this._dead = true;
+        break;
     }
   }
   

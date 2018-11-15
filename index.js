@@ -4,19 +4,17 @@ const { generate } = require('./env/generation');
 
 let currentSize = config.STARTING_SIZE;
 let level = 1;
-console.log("starting size :", currentSize)
 
 const main = async () => {
   const forest = generate(currentSize);
-
   const bot = new Bot(forest);
   
   const res = await think(bot);
   console.log("END : ", res)
-
+  await sleep(200);
   if (res) {
     level++;
-    console.log(level);
+    console.log("LEVEL :" + level);
     currentSize++;
     await(main());
   } else {
@@ -27,7 +25,7 @@ const main = async () => {
 const think = async (bot) => {
   let res = null;
   while(res === null || typeof res === "undefined") {
-    await sleep(500);
+    await sleep(100);
     res = await bot.think();
   }
   return res;

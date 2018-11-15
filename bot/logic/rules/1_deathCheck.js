@@ -9,7 +9,7 @@ const checkForDeath = (matrix) => {
 }
 
 module.exports = {
-  "priority": 1000,
+  "priority": 1001,
   "condition": function(R) {
     const a = checkForDeath(this.matrix);
     R.when(a);
