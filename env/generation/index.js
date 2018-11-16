@@ -20,7 +20,7 @@ const generateMatrix = (size, monsterProb, riftProb) => {
   generatedMatrix[0][0] = DEFAULT_VALUE;
   generatedMatrix[1][0] = DEFAULT_VALUE;
   generatedMatrix[0][1] = DEFAULT_VALUE;
-  generatedMatrix[1][1] = "M";
+  generatedMatrix[1][1] = "R";
   
   // Set the portal (overrides monster & rift), can't be at start
   let xPortal = 0;

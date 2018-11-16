@@ -1,4 +1,9 @@
 const logic  = require('./logic');
+const { 
+  southExists, eastExists, westExists, northExists,
+  getSouthValue, getEastValue, getNorthValue, getWestValue,
+  getRandom,
+} = require('../utils');
 
 class Bot {
   
@@ -98,7 +103,28 @@ class Bot {
   shootHandler(x, y) {
     if (this._board[y][x] === 'M') {
       console.log('you killed a monster @', x , y)
-      this._board[y][x] = ' ';
+      
+      // /* the smells of the killed monster disapears */
+
+      // if ()
+
+      /* check if the smell should remain or disapear (is there another monster around ?) */
+
+      let newValue = ' ';
+      if (southExists(this._board.length, x, y) && (getSouthValue(this._board, x, y) === 'M' || getSouthValue(this._board, x, y) === 'R')) {
+        newValue = getSouthValue(this._board, x, y).toLowerCase();
+      } 
+      if (northExists(this._board.length, x, y) && (getNorthValue(this._board, x, y) === 'M' || getNorthValue(this._board, x, y) === 'R')) {
+        newValue = getNorthValue(this._board, x, y).toLowerCase();
+      } 
+      if (eastExists(this._board.length, x, y) && (getEastValue(this._board, x, y) === 'M' || getEastValue(this._board, x, y) === 'R')) {
+        newValue = getEastValue(this._board, x, y).toLowerCase();
+      } 
+      if (westExists(this._board.length, x, y) && (getWestValue(this._board, x, y) === 'M' || getWestValue(this._board, x, y) === 'R')) {
+        newValue = getWestValue(this._board, x, y).toLowerCase();
+      } 
+      console.log("setting new value to ", newValue);
+      this._board[y][x] = newValue;
     } else {
       console.log("monster missed")
     }
