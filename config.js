@@ -16,8 +16,8 @@ const display = {
   MONSTER_VALUE: "▲".red,
   MONSTER_VALUE_DEDUCTED: "▲".white,
   PORTAL_VALUE: "★".yellow,
-  RIFT_VALUE: "⏺".green,
-  RIFT_VALUE_DEDUCTED: "⏺".white,
+  RIFT_VALUE: "●".green,
+  RIFT_VALUE_DEDUCTED: "●".white,
   SMELL_VALUE: "·".red,
 }
 

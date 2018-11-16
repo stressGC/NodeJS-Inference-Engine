@@ -100,4 +100,5 @@ The agent can do the following actions :
 
 The current state of the forest will be printed live in your console.
 
-![Screenshot of a result](https://github.com/stressGC/python-backtracking-CSP-sudoku-solver/blob/master/img/result.png "Screenshot of a result")
+![Gif](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/demo.gif)
+![Legend](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/display.png)
