@@ -17,7 +17,7 @@ This is a maze problem solved by an inference engine. The character has to escap
 
 Clone the project to your local machine:
 ```bash
-git clone https://github.com/stressGC/NodeJS-Inference-Model.git
+git clone https://github.com/stressGC/NodeJS-Inference-Engine.git
 cd TD3_la
 ```
 
