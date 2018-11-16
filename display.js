@@ -65,7 +65,7 @@ module.exports = (obj) => {
   }
 
   // bottom border
-  output.push(horizontalBorders)
+  output.push(horizontalBorders);
 
   console.log(columnify(output, { showHeaders: false }));
 }

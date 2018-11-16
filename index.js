@@ -1,3 +1,4 @@
+const colors = require('colors');
 const { ENV, TIME} = require('./config');
 const Bot = require('./bot');
 const { generate } = require('./env');
@@ -8,20 +9,19 @@ let level = currentSize;
 let score = 0;
 
 const main = async () => {
-  console.log("=> GOING TO LEVEL:", level);
   const forest = generate(currentSize);
   const bot = new Bot(forest, score);
   const res = await think(bot);
-  await sleep(TIME.RECAP_DISPLAY);
 
   if (res) { // agent escaped
+    console.log(("WON ! GOING TO LEVEL:" + level).green);
+    await sleep(TIME.RECAP_DISPLAY);
     score += bot._score;
     level++;
     currentSize++;
     await main();
   } else { // agent died
-    console.log("=> LOST");
-    console.log("=> GOING TO NEW GAME");
+    console.log("LOST ! GOING TO A NEW GAME".red);
 
     /* resetting default values */
     score = 0;
