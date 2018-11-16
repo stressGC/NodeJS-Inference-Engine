@@ -31,6 +31,7 @@ const checkIfBorder = (matrix, x, y, deducted) => {
 
 const countForValueAround = (matrix, x, y, values) => {
   let count = 0;
+  
   if (southExists(matrix.length, x, y) && values.includes(getSouthValue(matrix, x, y))) count++;
   if (westExists(matrix.length, x, y) && values.includes(getWestValue(matrix, x, y))) count++;
   if (northExists(matrix.length, x, y) && values.includes(getNorthValue(matrix, x, y))) count++;
@@ -69,15 +70,15 @@ const getRandomUnknownAround = (matrix, x, y) => {
 module.exports = {
   "priority": 980,
   "condition": function(R) {
-    console.log("checking if monster blocks us")
-    console.log(this.matrix)
+
     const NEEDS_TO_COMPUTE_BORDER = !(this.hasOwnProperty("blockingCells"));
     if (NEEDS_TO_COMPUTE_BORDER) this.blockingCells = computeBlockingCell(this.matrix, this.deducted);
+
     const BLOCKED_BY_MONSTERS = blockedByMonsters(this.matrix, this.blockingCells);
     R.when(BLOCKED_BY_MONSTERS);
   },
   "consequence": function(R) {
-    console.log("finding coords where to shoot");
+    /* deciding where to shoot at */
     const { x, y } = whereToShoot(this.matrix, this.blockingCells);
 
     this.result = {

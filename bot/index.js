@@ -1,14 +1,16 @@
 const logic  = require('./logic');
+const print = require('../display');
+
 const { 
   southExists, eastExists, westExists, northExists,
-  getSouthValue, getEastValue, getNorthValue, getWestValue,
-  getRandom,
+  getSouthValue, getEastValue, getNorthValue, getWestValue
 } = require('../utils');
 
 class Bot {
   
   constructor(board){
     this._board = board;
+    this._level = board.length;
     this.initialise();
     this._x = 0;
     this._y = 0;
@@ -19,9 +21,9 @@ class Bot {
   async think() {
     /* if death or win has been computed, pass */
     this.display();
-
     if(this._dead) return false;
     if(this._win) return true;
+
     /* observe env */
     const newValue = this.observeEnv();
     
@@ -29,7 +31,6 @@ class Bot {
     this.updateState(newValue);
     
     const action = await this.chooseAction();
-    console.log("doing action : " + action.type)
     this.doAction(action);
   }
   
@@ -68,7 +69,7 @@ class Bot {
   }
   
   doAction(action) {
-    console.log("doing action : ", action);
+    this._actionMessage = action;
     switch(action.type) {
       case 'GOTO':
         this._x = action.x;
@@ -85,7 +86,6 @@ class Bot {
         this._deducted[action.y][action.x] = true;
         break;
       case 'SHOOT':
-        console.log(action);
         /* shoot at monster */
         this.shootHandler(action.x, action.y)
 
@@ -95,18 +95,13 @@ class Bot {
         break;
       default:
         this._dead = true;
-        console.log("end of known rules")
+        console.log("=> CASE NOT HANDLED BY BOT");
         break;
     }
   }
 
   shootHandler(x, y) {
     if (this._board[y][x] === 'M') {
-      console.log('you killed a monster @', x , y)
-      
-      // /* the smells of the killed monster disapears */
-
-      // if ()
 
       /* check if the smell should remain or disapear (is there another monster around ?) */
 
@@ -123,11 +118,8 @@ class Bot {
       if (westExists(this._board.length, x, y) && (getWestValue(this._board, x, y) === 'M' || getWestValue(this._board, x, y) === 'R')) {
         newValue = getWestValue(this._board, x, y).toLowerCase();
       } 
-      console.log("setting new value to ", newValue);
       this._board[y][x] = newValue;
-    } else {
-      console.log("monster missed")
-    }
+    } 
   }
   
   initialise() {
@@ -144,10 +136,7 @@ class Bot {
   }
 
   display() {
-    console.log("================================")
-    console.log(this._knowledge);
-    console.log("_________________________")
-    console.log(this._board);
+    print(this);
   }
 };
 
