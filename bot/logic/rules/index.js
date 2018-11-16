@@ -4,6 +4,7 @@ const findPossiblesCells = require('./3_findCells');
 const safeFilter = require('./4_safeFilter');
 const computeBorders = require('./5_computeBorders');
 const detectDanger = require('./6_detectObviousDanger');
+const shotPossible = require('./7_shotPossible');
 
 module.exports = [
   deathCheck,
@@ -12,4 +13,5 @@ module.exports = [
   safeFilter,
   computeBorders,
   detectDanger,
+  shotPossible,
 ];

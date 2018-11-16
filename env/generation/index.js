@@ -20,6 +20,7 @@ const generateMatrix = (size, monsterProb, riftProb) => {
   generatedMatrix[0][0] = DEFAULT_VALUE;
   generatedMatrix[1][0] = DEFAULT_VALUE;
   generatedMatrix[0][1] = DEFAULT_VALUE;
+  generatedMatrix[1][1] = "M";
   
   // Set the portal (overrides monster & rift), can't be at start
   let xPortal = 0;
@@ -29,7 +30,10 @@ const generateMatrix = (size, monsterProb, riftProb) => {
     yPortal = getRandom(0, size - 1);
   }
   generatedMatrix[yPortal][xPortal] = PORTAL_VALUE;
-  
+  // return [ [ ' ', ' ', 'm', 'R' ],
+  //         [ 'r', 'm', 'M', 'P' ],
+  //         [ 'R', 'r', 'm', ' ' ],
+  //         [ ' ', ' ', ' ', ' ' ] ];
   return hintsGeneratedMatrix(generatedMatrix);
 };
 

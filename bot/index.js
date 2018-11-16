@@ -74,15 +74,33 @@ class Bot {
         break;
       case 'DEATH':
         this._dead = true;
+        break;
       case 'UPDATE_KNOWLEDGE':
         this._knowledge[action.y][action.x] = action.value;
         this._deducted[action.y][action.x] = true;
         break;
-      break;
-        default:
+      case 'SHOOT':
+        console.log(action);
+        /* shoot at monster */
+        this.shootHandler(action.x, action.y)
+
+        /* goto the cell */
+        this._x = action.x;
+        this._y = action.y;
+        break;
+      default:
         this._dead = true;
         console.log("end of known rules")
         break;
+    }
+  }
+
+  shootHandler(x, y) {
+    if (this._board[y][x] === 'M') {
+      console.log('you killed a monster @', x , y)
+      this._board[y][x] = ' ';
+    } else {
+      console.log("monster missed")
     }
   }
   
@@ -93,7 +111,6 @@ class Bot {
     this._knowledge[0][0] = ' ';
     
     this._deducted = new Array(length).fill(false).map(() => new Array(length).fill(false));
-    console.log(this._deducted);
   }
   
   resetFacts() {

@@ -11,7 +11,7 @@ const main = async () => {
   
   const res = await think(bot);
   console.log("END : ", res)
-  await sleep(1);
+  await sleep(10);
   if (res) {
     level++;
     console.log("LEVEL :" + level);
@@ -25,7 +25,7 @@ const main = async () => {
 const think = async (bot) => {
   let res = null;
   while(res === null || typeof res === "undefined") {
-    await sleep(1);
+    await sleep(10);
     res = await bot.think();
   }
   return res;

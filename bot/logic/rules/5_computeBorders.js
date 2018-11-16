@@ -46,7 +46,6 @@ module.exports = {
   },
   "consequence": function(R) {
     const borderCells = computeBorderCells(this.matrix, this.deducted);
-    console.log("border", borderCells)
     this.borderCells = borderCells;
     R.next();
   }
