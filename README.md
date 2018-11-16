@@ -2,7 +2,7 @@
 
 Made for the 3rd workshop of Artificial Intelligence @ UQAC.
 
-This is a maze problem solved by an inference engine. The character has to escape the forest by taking the portal and avoiding dangers (monsters & rifts). The game is infinite, as the portal will only teleport him to an even bigger forest ! Once dead, the game restart again.
+This is a maze problem solved by an inference engine.  The character has to escape the forest by taking the portal and avoiding dangers (monsters & rifts). The game is infinite, as the portal will only teleport him to an even bigger forest ! Once dead, the game restart again.
 
 
 ![Gif](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/demo.gif)
@@ -19,7 +19,7 @@ This is a maze problem solved by an inference engine. The character has to escap
 Clone the project to your local machine:
 ```bash
 git clone https://github.com/stressGC/NodeJS-Inference-Engine.git
-cd TD3_la
+cd NodeJS-Inference-Engine
 ```
 
 You will need to install npm modules :
@@ -101,3 +101,32 @@ The current state of the forest will be printed live in your console.
 
 ![Gif](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/demo.gif)
 ![Legend](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/legend.png)
+
+## VIII] Authors
+
+[A. Demon](https://github.com/LudoCruchot)
+[A. de la Taile](https://github.com/Adlt92)
+
+## IX] Licence
+
+MIT License
+
+Copyright (c) 2018 Georges Cosson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
