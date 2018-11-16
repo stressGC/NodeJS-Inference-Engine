@@ -30,7 +30,7 @@ const main = async () => {
 const think = async (bot) => {
   let res = null;
   while(res === null || typeof res === "undefined") {
-    await sleep(500);
+    await sleep(200);
     res = await bot.think();
   }
   return res;

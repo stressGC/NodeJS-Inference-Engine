@@ -1,6 +1,6 @@
-# Logical Agent
-## Agent / logical formalism
+# Magic Forest / Inference Engine
 
+Made for the 3rd workshop of Artificial Intelligence @ UQAC.
 ## I] Requirements
 
 - [git](https://git-scm.com/downloads) to download the source code
@@ -11,7 +11,7 @@
 
 Clone the project to your local machine:
 ```bash
-git clone https://github.com/stressGC/TD3_Ia.git
+git clone https://github.com/stressGC/NodeJS-Inference-Model.git
 cd TD3_la
 ```
 
@@ -71,6 +71,6 @@ This rule is quite the trash of the inference engine, if no other solution has b
 
 ## V] Results
 
-All the current computing steps will be printed in console for each forest.
+The current state of the forest will be printed live in your console.
 
 ![Screenshot of a result](https://github.com/stressGC/python-backtracking-CSP-sudoku-solver/blob/master/img/result.png "Screenshot of a result")
