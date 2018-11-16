@@ -1,6 +1,11 @@
 # Magic Forest / Inference Engine
 
 Made for the 3rd workshop of Artificial Intelligence @ UQAC.
+
+<div style="text-align:center">
+  <img src="https://raw.githubusercontent.com/stressGC/NodeJS-Inference-Model/master/report/illustration.PNG
+" />
+</div>
 ## I] Requirements
 
 - [git](https://git-scm.com/downloads) to download the source code
