@@ -34,6 +34,8 @@ start the code
 node index.js
 ```
 
+The time between each plays can be configured in the [**config** file](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/config.js)
+
 ## IV] Structure
 
 All the code related to the map generation is in the [**env** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/env).

@@ -24,7 +24,7 @@ const main = async () => {
     score = 0;
     currentSize = config.STARTING_SIZE;
     level = currentSize;
-    await sleep(1000);
+    await sleep(config.time.TIME_GAME_LOST);
     await main();
   }
 };
@@ -32,7 +32,7 @@ const main = async () => {
 const think = async (bot) => {
   let res = null;
   while(res === null || typeof res === "undefined") {
-    await sleep(200);
+    await sleep(config.time.TIME_BETWEEN_PLAYS);
     res = await bot.think();
   }
   return res;

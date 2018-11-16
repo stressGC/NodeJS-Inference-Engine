@@ -8,6 +8,11 @@ const PORTAL_VALUE = "P";
 const CHAR_VALUE = "@";
 const UNKNOWN_VALUE = "?";
 
+const time = {
+  TIME_BETWEEN_PLAYS: 200,
+  TIME_GAME_LOST: 1000,
+}
+
 /* DISPLAY */
 const display = {
   WALL_VALUE: "◼".gray,
@@ -37,4 +42,5 @@ module.exports = {
   CHAR_VALUE,
   UNKNOWN_VALUE,
   display,
+  time,
 }
