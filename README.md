@@ -3,6 +3,7 @@
 Made for the 3rd workshop of Artificial Intelligence @ UQAC.
 
 ![illustration](https://raw.githubusercontent.com/stressGC/NodeJS-Inference-Model/master/report/illustration.PNG)
+
 ## I] Requirements
 
 - [git](https://git-scm.com/downloads) to download the source code
@@ -31,13 +32,13 @@ node index.js
 
 ## IV] Structure
 
-All the code related to the map generation is in the "env" folder.
+All the code related to the map generation is in the [**env** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/env).
 
-The "bot" folder contains everything about our agent: its creation, its inference engine and its sensors / effectors.
+The [**bot** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot) folder contains everything about our agent: its creation, its inference engine and its sensors / effectors.
 
 ## V] Inference Engine
 
-The agent is based on an inference engine. All the rules can be found in "bot/logic". They are applied in the following order :
+The agent logic is an inference engine. All the rules can be found in [**rules** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot/logic/rules). They are applied in the following order :
 
 - **Rule 1: Death Check**
 
