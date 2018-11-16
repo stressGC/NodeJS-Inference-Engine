@@ -5,7 +5,8 @@ Made for the 3rd workshop of Artificial Intelligence @ UQAC.
 This is a maze problem solved by an inference engine. The character has to escape the forest by taking the portal and avoiding dangers (monsters & rifts). The game is infinite, as the portal will only teleport him to an even bigger forest ! Once dead, the game restart again.
 
 
-![illustration](https://raw.githubusercontent.com/stressGC/NodeJS-Inference-Model/master/report/illustration.PNG)
+![Gif](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/demo.gif)
+![Legend](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/legend.png)
 
 ## I] Requirements
 
@@ -80,10 +81,6 @@ This rule checks if we are blocked by monster(s). If it's the case, the rule wil
 This rule is quite the trash of the inference engine, if no other solution has been found, then a random _*GOTO*_ action will be send back.
 
 
-
-
-
-
 ## VI] Actions
 The agent can do the following actions :
 
@@ -101,4 +98,4 @@ The agent can do the following actions :
 The current state of the forest will be printed live in your console.
 
 ![Gif](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/demo.gif)
-![Legend](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/display.png)
+![Legend](https://github.com/stressGC/NodeJS-Inference-Engine/blob/master/report/legend.png)
