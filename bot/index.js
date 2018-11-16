@@ -78,11 +78,11 @@ class Bot {
         this._y = action.y;
         break;
       case 'WIN':
-        this._score += 10;
+        this._score += 10  * Math.pow(this._board.length, 2);
         this._win = true;
         break;
       case 'DEATH':
-        this._score -= 10 * Math.pow(this._board.length, 2)
+        this._score -= 10 * Math.pow(this._board.length, 2);
         this._dead = true;
         break;
       case 'UPDATE_KNOWLEDGE':
