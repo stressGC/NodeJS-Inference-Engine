@@ -55,8 +55,8 @@ module.exports = {
         this.cells = safeFiltered;
         const index = getRandom(0, safeFiltered.length -1)
         this.result = {
-          ...safeFiltered[index],
           type: 'GOTO',
+          ...safeFiltered[index],
         };
         R.stop();
     }

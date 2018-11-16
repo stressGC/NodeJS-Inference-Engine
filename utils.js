@@ -13,13 +13,18 @@ const getSouthValue = (matrix, x, y) => matrix[y + 1][x];
 /* random generator */
 const getRandom = (min, max) =>  Math.floor(Math.random() * (max - min + 1)) + min;
 
+/* sleep function for the prints to be visible by human */
+const sleep = async (ms) =>  new Promise(resolve => setTimeout(resolve, ms));
 
-module.exports.getRandom = getRandom;
-module.exports.eastExists = eastExists;
-module.exports.westExists = westExists;
-module.exports.southExists = southExists;
-module.exports.northExists = northExists;
-module.exports.getEastValue = getEastValue;
-module.exports.getWestValue = getWestValue;
-module.exports.getNorthValue = getNorthValue;
-module.exports.getSouthValue = getSouthValue;
+module.exports = {
+  getRandom,
+  sleep,
+  eastExists,
+  westExists,
+  southExists,
+  northExists,
+  getEastValue,
+  getWestValue,
+  getNorthValue,
+  getSouthValue,
+};

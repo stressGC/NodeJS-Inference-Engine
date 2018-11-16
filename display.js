@@ -1,29 +1,32 @@
 const columnify = require('columnify');
-const config = require('./config');
+const { DISPLAY, VALUES } = require('./config');
 
-const getDisplayFor = (elem, deducted) => {
-  switch(elem) {
-    case "?":
-      return config.display.UNKNOWN_VALUE;
-    case "M":
-      if (deducted) return config.display.MONSTER_VALUE_DEDUCTED;
-      return config.display.MONSTER_VALUE
-    case "m":
-      return config.display.SMELL_VALUE;
-    case "r":
-      return config.display.WIND_VALUE;
-    case 'P':
-      return config.display.PORTAL_VALUE;
-    case "R":
-      if (deducted) return config.display.RIFT_VALUE_DEDUCTED;
-      return config.display.RIFT_VALUE;
+/* returns the console display value from a string */
+const getDisplayFor = (value, deducted) => {
+  switch(value) {
+    case VALUES.UNKNOWN:
+      return DISPLAY.UNKNOWN;
+    case VALUES.MONSTER:
+      if (deducted) return DISPLAY.MONSTER_DEDUCTED;
+      return DISPLAY.MONSTER;
+    case VALUES.SMELL:
+      return DISPLAY.SMELL;
+    case VALUES.WIND:
+      return DISPLAY.WIND;
+    case VALUES.PORTAL:
+      return DISPLAY.PORTAL;
+    case VALUES.RIFT:
+      if (deducted) return DISPLAY.RIFT_DEDUCTED;
+      return DISPLAY.RIFT_VALUE;
     default:
-      return elem;
+      return value;
   }
 }
 
 /* METHODS */
 module.exports = (obj) => {
+
+  /* get pertinent values */
   const matrix = obj._knowledge;
   const deducted = obj._deducted;
   const level = obj._level;
@@ -39,7 +42,7 @@ module.exports = (obj) => {
   
   /* GAME BOARD DISPLAY */
   const line = new Array(matrix.length + 2);
-  const horizontalBorders = line.fill(config.display.WALL_VALUE);
+  const horizontalBorders = line.fill(DISPLAY.WALL);
   const output = new Array(matrix.length);
 
   // top border
@@ -48,14 +51,14 @@ module.exports = (obj) => {
   for(let x = 0; x < matrix.length; x++) {
     const displayLine = Array();
     // left border
-    displayLine.unshift(config.display.WALL_VALUE);
+    displayLine.unshift(DISPLAY.WALL);
 
     for(let y = 0; y < matrix.length; y++) {
       displayLine.push(getDisplayFor(matrix[y][x], deducted[y][x]));
 
     }
     // right border
-    displayLine.push(config.display.WALL_VALUE);
+    displayLine.push(DISPLAY.WALL);
     output.push(displayLine);
   }
 
