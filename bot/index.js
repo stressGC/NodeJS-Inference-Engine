@@ -8,12 +8,13 @@ const {
 
 class Bot {
   
-  constructor(board){
+  constructor(board, score){
     this._board = board;
     this._level = board.length;
     this.initialise();
     this._x = 0;
     this._y = 0;
+    this._score = score;
     
     this._logic = logic;
   }
@@ -72,13 +73,16 @@ class Bot {
     this._actionMessage = action;
     switch(action.type) {
       case 'GOTO':
+        this._score--;
         this._x = action.x;
         this._y = action.y;
         break;
       case 'WIN':
+        this._score += 10;
         this._win = true;
         break;
       case 'DEATH':
+        this._score -= 10 * Math.pow(this._board.length, 2)
         this._dead = true;
         break;
       case 'UPDATE_KNOWLEDGE':
@@ -86,6 +90,7 @@ class Bot {
         this._deducted[action.y][action.x] = true;
         break;
       case 'SHOOT':
+        this._score -= 10;
         /* shoot at monster */
         this.shootHandler(action.x, action.y)
 

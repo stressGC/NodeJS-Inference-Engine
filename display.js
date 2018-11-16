@@ -27,10 +27,12 @@ module.exports = (obj) => {
   const matrix = obj._knowledge;
   const deducted = obj._deducted;
   const level = obj._level;
+  const score = obj._score;
 
   /* ATH */
   console.clear();
   console.log("LEVEL : " + level);
+  console.log("SCORE : " + score);
   
   if (obj.hasOwnProperty("_actionMessage")) console.log(">", obj._actionMessage);
   else console.log(">")
