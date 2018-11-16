@@ -40,8 +40,10 @@ All the code related to the map generation is in the [**env** folder](https://gi
 The [**bot** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot) folder contains everything about our agent: its creation, its inference engine and its sensors / effectors.
 
 The config file is the place where every constants is defined.
+The display file is a script to "beautifully" display the forest.
+The utils file is a custom made library for usual functions of this problem.
 
-## V] Inference Engine
+## V] Logic : Inference Engine
 
 The agent logic is an inference engine. All the rules can be found in [**rules** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot/logic/rules). They are applied in the following order :
 
