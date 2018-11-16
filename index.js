@@ -20,7 +20,7 @@ const main = async () => {
     await main();
   } else {
     console.log("=> LOST");
-    console.log("=> GOING TO NEW GAME");
+    console.log("=> GOING TO NEW GAM  E");
     score = 0;
     currentSize = config.STARTING_SIZE;
     level = currentSize;
