@@ -39,6 +39,8 @@ All the code related to the map generation is in the [**env** folder](https://gi
 
 The [**bot** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot) folder contains everything about our agent: its creation, its inference engine and its sensors / effectors.
 
+The config file is the place where every constants is defined.
+
 ## V] Inference Engine
 
 The agent logic is an inference engine. All the rules can be found in [**rules** folder](https://github.com/stressGC/NodeJS-Inference-Model/tree/master/bot/logic/rules). They are applied in the following order :
@@ -82,10 +84,14 @@ This rule is quite the trash of the inference engine, if no other solution has b
 
 ## VI] Actions
 The agent can do the following actions :
+
 - **GOTO (x,y)** : he moves itself to a certain cell
+
 - **WIN** : he takes the portal and wins
+
 - **UPDATE_KNOWLEDGE** : updates its knowledge based on the informations the inference engine has computed.
 - **DEAD** : the agent died, game restarts
+
 - **SHOOT (x,y)** : the agent shoots at a certain place
 
 ## VII] Results
