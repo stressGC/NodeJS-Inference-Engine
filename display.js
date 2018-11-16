@@ -1,4 +1,5 @@
 const columnify = require('columnify');
+const colors = require('colors');
 const { DISPLAY, VALUES } = require('./config');
 
 /* returns the console display value from a string */
@@ -31,11 +32,12 @@ module.exports = (obj) => {
   const deducted = obj._deducted;
   const level = obj._level;
   const score = obj._score;
-
+  const lastScoreDisplay = (obj._lastScore > 0) ? ('+' + String(obj._lastScore)).green : String(obj._lastScore).red;
+  
   /* ATH */
   console.clear();
   console.log("LEVEL : " + level);
-  console.log("SCORE : " + score);
+  console.log("SCORE : " + score + ' (' + lastScoreDisplay + ')');
   
   if (obj.hasOwnProperty("_actionMessage")) console.log(">", obj._actionMessage);
   else console.log(">")

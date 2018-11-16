@@ -11,17 +11,11 @@ const VALUES = {
   WIND: 'r',
 };
 
-// const DEFAULT_VALUE = " ";
-// const RIFT_VALUE = "R";
-// const MONSTER_VALUE = "M";
-// const PORTAL_VALUE = "P";
-// const CHAR_VALUE = "@";
-// const UNKNOWN_VALUE = "?";
-
 /* time values */
 const TIME = {
   BETWEEN_PLAYS: 200,
   AFTER_GAME_LOST: 1000,
+  RECAP_DISPLAY: 1000,
 }
 
 /* DISPLAY */
@@ -43,10 +37,6 @@ const ENV = {
   MONSTER_PROBABILITY: 0.08,
   RIFT_PROBABILITY: 0.08,
 };
-
-// const STARTING_SIZE = 4;
-// const MONSTER_PROBABILITY_PER_CELL = 0.08;
-// const RIFT_PROBABILITY_PER_CELL = 0.08;
 
 module.exports = {
   ENV,

@@ -8,6 +8,7 @@ module.exports = {
   },
   "consequence": function(R) {
     const index = getRandom(0, this.cells.length - 1);
+    /* returning a random move from the possible moves */
     const { x, y } = this.cells[index];
     this.result = {
       type: 'GOTO',

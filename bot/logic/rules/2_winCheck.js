@@ -1,21 +1,22 @@
+const { VALUES } = require('../../../config');
+
 const checkForWin = (matrix) => {
   for (let x = 0; x < matrix.length; x++) {
     for (let y = 0; y < matrix.length; y++) {
-      /* check if we discovered an illegal cell */
-      if (matrix[x][y] === 'P') return true;
+      /* check if we discovered a portal */
+      if (matrix[x][y] === VALUES.PORTAL) return true;
     }
   }
   return false;
-}
+};
 
 module.exports = {
   "priority": 1000,
   "condition": function(R) {
-    const a = checkForWin(this.matrix);
-    R.when(a);
+    const HAS_WON = checkForWin(this.matrix);
+    R.when(HAS_WON);
   },
   "consequence": function(R) {
-    // console.log("IS WINNINNNG RULE");
     this.result = {
       type: 'WIN',
     };

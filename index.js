@@ -11,9 +11,8 @@ const main = async () => {
   console.log("=> GOING TO LEVEL:", level);
   const forest = generate(currentSize);
   const bot = new Bot(forest, score);
-  process.exit()
   const res = await think(bot);
-  await sleep(10000);
+  await sleep(TIME.RECAP_DISPLAY);
 
   if (res) { // agent escaped
     score += bot._score;
